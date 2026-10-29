@@ -32,8 +32,12 @@ Edite `src/partyConfig.js` para atualizar o nome, idade, data, horário, telefon
 
 O projeto não define ano, endereço ou coordenadas para a festa. A confirmação abre o WhatsApp com nome e quantidade de pessoas preenchidos; o convidado ainda precisa enviar a mensagem.
 
-## Publicar
+## Publicar no Netlify
 
-Execute `npm run build`. Publique o conteúdo da pasta `dist` em um serviço de hospedagem estática, como Vercel ou Netlify. A configuração padrão do Vite funciona sem ajustes adicionais para uma publicação na raiz do domínio.
+O projeto está configurado em `netlify.toml` para compilar com `npm run build` e publicar `dist`.
+
+Para um deploy manual, gere a versão final com `npm run build` e, no Netlify, escolha a opção de deploy manual/drag and drop e envie a pasta `dist`. O Netlify fornecerá uma URL pública. Para atualizar o convite, repita o build e envie novamente a pasta `dist`.
+
+Se conectar o projeto a um repositório Git que contenha esta versão React, o Netlify poderá executar o comando e publicar a pasta configurados automaticamente.
 
 As sugestões de presentes são estáticas nesta versão; não há reservas nem banco de dados.

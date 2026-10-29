@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; }
+body { margin: 0; min-width: 320px; min-height: 100vh; min-height: 100dvh; background: #fffefd; }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
@@ -27,25 +27,26 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   background: #fffafb;
 }
-.invite-page { width: 100vw; height: 100svh; min-height: 0; overflow: hidden; }
-.gift-page { min-height: 100svh; align-items: flex-start; overflow-y: auto; padding: 8px 5px; }
+.invite-page { width: 100vw; height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; background: #fffefd; }
+.gift-page { min-height: 100vh; min-height: 100dvh; align-items: flex-start; overflow-y: auto; padding: 8px 5px; }
 
 /* The invitation artwork is the visual source of truth for the first screen. */
 .invite-artwork {
   position: relative;
   isolation: isolate;
   flex: 0 0 auto;
-  width: min(500px, 56.35vh, 122.2vw);
-  width: min(500px, 56.35svh, 122.2vw);
+  width: min(500px, 55.22vh, 122.2vw);
+  width: min(500px, 55.22dvh, 122.2vw);
   aspect-ratio: 945 / 1677;
   max-height: 100vh;
-  max-height: 100svh;
+  max-height: 100dvh;
   overflow: hidden;
   background: #fffefd;
 }
