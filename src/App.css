@@ -42,8 +42,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   position: relative;
   isolation: isolate;
   flex: 0 0 auto;
-  width: min(500px, 55.22vh, 122.2vw);
-  width: min(500px, 55.22dvh, 122.2vw);
+  width: 56.35vh;
+  width: 56.35dvh;
   aspect-ratio: 945 / 1677;
   max-height: 100vh;
   max-height: 100dvh;
