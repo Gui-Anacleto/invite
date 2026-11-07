@@ -1,6 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
 import {
-  ArrowLeft,
   CheckCircle2,
   ExternalLink,
   Flower2,
@@ -87,7 +86,7 @@ function getMapsRoute() {
 }
 
 function InviteArtwork({ onConfirm, onLocation, onGifts }) {
-  const location = PARTY.location.address.trim() || "Endereço a definir";
+  const location = PARTY.venue?.trim() || PARTY.location.address.trim() || "Endereço a definir";
   const nameChanged = PARTY.childName !== "Alice";
   const ageChanged = PARTY.age !== 1;
   const invitationDescription =
@@ -145,38 +144,8 @@ function InviteArtwork({ onConfirm, onLocation, onGifts }) {
   );
 }
 
-function GiftScreen({ onBack }) {
-  return (
-    <main className="gift-shell">
-      <img className="gift-frame-art" src="/images/convite-referencia.png" alt="" aria-hidden="true" />
-      <div className="gift-paper" aria-hidden="true" />
-      <section className="gift-content" aria-labelledby="gift-title">
-        <button className="back-button" type="button" onClick={onBack}>
-          <ArrowLeft size={16} aria-hidden="true" /> Voltar ao convite
-        </button>
-        <Flower2 className="gift-flower" size={30} strokeWidth={1.3} aria-hidden="true" />
-        <p className="gift-eyebrow">COM CARINHO, PARA NOSSA PEQUENA</p>
-        <h1 id="gift-title">Presentinhos<br />para a Alice</h1>
-        <p className="gift-intro">Sua presença é o nosso maior presente! Se quiser presentear a Alice, aqui vão algumas sugestões cheias de carinho.</p>
-        <div className="gift-list">
-          {PARTY.gifts.map((gift) => (
-            <article className="gift-item" key={gift.category}>
-              <span className="gift-item-flower" aria-hidden="true"><Flower2 size={17} strokeWidth={1.5} /></span>
-              <div><h2>{gift.category}</h2><p>{gift.examples}</p></div>
-            </article>
-          ))}
-        </div>
-        <p className="gift-footer">Obrigada por fazer parte desse dia especial!</p>
-        <button className="primary-button" type="button" onClick={onBack}>
-          <ArrowLeft size={16} aria-hidden="true" /> Voltar ao convite
-        </button>
-      </section>
-    </main>
-  );
-}
 
 function App() {
-  const [screen, setScreen] = useState("invite");
   const [modal, setModal] = useState(null);
   const [guestName, setGuestName] = useState("");
   const [guestCount, setGuestCount] = useState("");
@@ -213,16 +182,12 @@ function App() {
   }
 
   return (
-    <div className={`page ${screen === "invite" ? "invite-page" : "gift-page"}`}>
-      {screen === "invite" ? (
-        <InviteArtwork
-          onConfirm={openRsvp}
-          onLocation={() => setModal("location")}
-          onGifts={() => setScreen("gifts")}
-        />
-      ) : (
-        <GiftScreen onBack={() => setScreen("invite")} />
-      )}
+    <div className="page invite-page">
+      <InviteArtwork
+        onConfirm={openRsvp}
+        onLocation={() => setModal("location")}
+        onGifts={() => setModal("gifts")}
+      />
 
       {modal === "whatsapp" && (
         <Modal title="Confirme sua presença" onClose={() => setModal(null)}>
@@ -283,6 +248,24 @@ function App() {
               Abrir rota no Google Maps <ExternalLink size={15} aria-hidden="true" />
             </a>
           )}
+        </Modal>
+      )}
+
+      {modal === "gifts" && (
+        <Modal title="Presentinhos para a Alice" onClose={() => setModal(null)}>
+          <p className="modal-copy">Sua presença é o nosso maior presente! Se quiser presentear a Alice, aqui vão algumas sugestões cheias de carinho.</p>
+          <div className="gift-list">
+            {PARTY.gifts.map((gift) => (
+              <article className="gift-item" key={gift.category}>
+                <span className="gift-item-flower" aria-hidden="true"><Flower2 size={17} strokeWidth={1.5} /></span>
+                <div>
+                  <h2>{gift.category}</h2>
+                  {gift.examples && <p>{gift.examples}</p>}
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="gift-footer">Obrigada por fazer parte desse dia especial!</p>
         </Modal>
       )}
     </div>

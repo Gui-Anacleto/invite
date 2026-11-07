@@ -1,19 +1,17 @@
 export const PARTY = {
   childName: "Alice",
   age: 1,
-  date: "17/12",
-  time: "11:00",
+  date: "12/12",
+  time: "15:00",
+  venue: "Green Ville Party",
   location: {
-    address: "",
-    mapsUrl: "",
+    address: "R. Bernardino Landulfo, 197 - Vila Vilar, Ourinhos - SP, 19902-620, Brasil",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=R.+Bernardino+Landulfo,+197+-+Vila+Vilar,+Ourinhos+-+SP,+19902-620,+Brasil",
   },
   whatsapp: "5514997775710",
   gifts: [
-    { category: "Roupinhas", examples: "Vestidos, conjuntos e pijaminhas" },
-    { category: "Calçados", examples: "Sandálias e tênis infantis" },
-    { category: "Brinquedos educativos", examples: "Opções para descobrir e brincar" },
-    { category: "Livros infantis", examples: "Livros ilustrados e livros de banho" },
-    { category: "Acessórios infantis", examples: "Laços, tiaras e acessórios" },
-    { category: "Itens de banho", examples: "Toalhas macias e cuidados infantis" },
+    { category: "Roupas - Tamanho 1 e 2", examples: "" },
+    { category: "Sapatos - Tamanho 19 e 20", examples: "" },
+    { category: "Brinquedos", examples: "" },
   ],
 };
