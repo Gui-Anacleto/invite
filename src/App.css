@@ -129,7 +129,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .gift-item { display: flex; align-items: center; gap: 9px; min-height: 49px; padding: 7px 10px; border: 1px solid #f1dce5; border-radius: 12px; background: rgba(255, 255, 255, .96); box-shadow: 0 3px 10px rgba(168, 115, 145, .06); }
 .gift-item-flower { width: 24px; height: 24px; display: grid; place-items: center; flex: 0 0 auto; color: var(--sage); }
 .gift-item h2 { margin: 0 0 1px; color: var(--pink-dark); font-size: 12px; font-weight: 700; }
-.gift-item p { margin: 0; color: #967e76; font-size: 10px; line-height: 1.35; }
+.gift-item p { margin: 0; color: #967e76; font-size: 10px; text-align: right; font-weight: 700; }
 .gift-footer { margin: 13px 0 10px; color: var(--lilac); font-family: 'Playfair Display', Georgia, serif; font-size: 12px; }
 
 .modal-backdrop { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)); background: rgba(69, 49, 62, .4); backdrop-filter: blur(4px); }
@@ -159,8 +159,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .gift-shell { min-height: 790px; }
   .gift-content { padding-top: 19px; padding-bottom: 22px; }
   .gift-item { min-height: 46px; padding: 6px 8px; }
-  .gift-item p { font-size: 9px; }
+  .gift-item p { font-size: 12px; }
   .modal-card { padding: 27px 20px 20px; }
+  .gift-item > div { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

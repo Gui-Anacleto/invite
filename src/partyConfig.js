@@ -10,8 +10,8 @@ export const PARTY = {
   },
   whatsapp: "5514997775710",
   gifts: [
-    { category: "Roupas - Tamanho 1 e 2", examples: "" },
-    { category: "Sapatos - Tamanho 19 e 20", examples: "" },
+    { category: "Roupas ", examples: "- Tamanho 1 e 2" },
+    { category: "Sapatos ", examples: "- Tamanho 17 ao 20" },
     { category: "Brinquedos", examples: "" },
   ],
 };
