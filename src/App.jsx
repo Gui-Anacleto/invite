@@ -95,7 +95,7 @@ function InviteArtwork({ onConfirm, onLocation, onGifts }) {
 
   return (
     <main className="invite-artwork">
-      <img className="invite-reference" src="/images/convite-referencia.png" alt={invitationDescription} />
+      <img className="invite-reference" src={`${import.meta.env.BASE_URL}images/convite-referencia.png`} alt={invitationDescription} />
 
       {ageChanged && (
         <>
